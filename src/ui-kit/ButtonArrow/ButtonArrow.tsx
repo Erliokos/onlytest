@@ -7,9 +7,9 @@ export interface ButtonArrowProps extends ButtonProps {
   arrowLeft?: boolean
 }
 
-export const ButtonArrow: React.FC<ButtonArrowProps> = ({ variant, arrowLeft }) => {
+export const ButtonArrow: React.FC<ButtonArrowProps> = ({ variant, arrowLeft, ...props }) => {
   return (
-    <Button>
+    <Button {...props}>
       <Icon as={MyIcon} arrowLeft={arrowLeft} />
     </Button>
   )

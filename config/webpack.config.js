@@ -312,7 +312,7 @@ module.exports = function (webpackEnv) {
           ext => useTypeScript || !ext.includes('ts') || !ext.includes('tsx')
         ),
       alias: {
-        'ui-kit': path.resolve(__dirname, 'src/ui-kit'),
+        'ui-kit': path.resolve(paths.appSrc, 'ui-kit'),
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',

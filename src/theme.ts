@@ -7,9 +7,10 @@ export const breakpoints = {
 export const theme: DefaultTheme  = {
   colors: {
     primary: "white",
+    secondary: "#3877EE",
     background: "#FFFFFF",
     text: "#42567A",
-    border: "#3877EE",
+    border: "rgba(48, 62, 88, 0.5)",
     gradientA: "#5D5FEF",
     gradientB: "#EF5DA8",
   },

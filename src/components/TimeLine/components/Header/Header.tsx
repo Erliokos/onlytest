@@ -1,12 +1,14 @@
 import { HeaderContainer, HeaderText, HeaderVerticalLine } from './Styled'
 
-export type HeaderProps = {}
+export type HeaderProps = {
+  title: string
+}
 
-export const Header: React.FC<HeaderProps> = () => {
+export const Header: React.FC<HeaderProps> = ({title}) => {
   return (
     <HeaderContainer>
       <HeaderVerticalLine />
-      <HeaderText>Исторические даты</HeaderText>
+      <HeaderText>{title}</HeaderText>
     </HeaderContainer>
   )
 }
