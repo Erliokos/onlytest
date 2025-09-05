@@ -1,4 +1,4 @@
-import { ButtonProps } from "../../../../ui-kit"
+import { ButtonProps } from 'ui-kit/Button'
 
 export interface CircleButtonProps extends ButtonProps {
   arrowLeft?: boolean
