@@ -4,10 +4,7 @@ import { TimeLine } from './components/TimeLine'
 import { MainContainer } from './globalStyles'
 import data from './timeline_data.json'
 
-
-
-function App() {
-
+export function App() {
   return (
     <ResponsiveProvider>
       <MainContainer>
@@ -16,5 +13,3 @@ function App() {
     </ResponsiveProvider>
   )
 }
-
-export default App
