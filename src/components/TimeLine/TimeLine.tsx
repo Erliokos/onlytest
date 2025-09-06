@@ -16,6 +16,8 @@ import { Slider } from './components/Slider'
 import { ButtonArrow } from 'ui-kit'
 import type { TimeLineProps } from './interfaces'
 import { LineGroup } from './components/LineGroup'
+import { useResponsive } from 'context/ResponsiveContext'
+import { Divider } from 'globalStyles'
 
 export const TimeLine: React.FC<TimeLineProps> = ({ data, title }) => {
   const [activeSlide, setActiveSlide] = useState<number>(1)
@@ -26,8 +28,10 @@ export const TimeLine: React.FC<TimeLineProps> = ({ data, title }) => {
     data[activeSlide - 1].events.at(-1)?.date ?? 2000
   )
 
+  const { isMobile } = useResponsive()
+
   const counterA = useRef({ val: yearA })
-  const counterB = useRef({ val: yearB })
+  const counterB = useRef({ val: yearB })  
 
   const handleChangeActiveSlide = (value: number) => {
     const slideNumber =
@@ -52,20 +56,23 @@ export const TimeLine: React.FC<TimeLineProps> = ({ data, title }) => {
   }
 
   return (
-    <Container>
+    <Container isMobile={isMobile}>
       <Header title={title} />
-      <LineGroup />
-      <CircleTimeLine
-        entityCount={data.length}
-        description={data[activeSlide - 1].title}
-        activeSlide={activeSlide}
-        onChangeActiveSlide={handleChangeActiveSlide}
-      />
-      <YearLine>
+      {!isMobile && <LineGroup />}
+      {!isMobile && (
+        <CircleTimeLine
+          entityCount={data.length}
+          description={data[activeSlide - 1].title}
+          activeSlide={activeSlide}
+          onChangeActiveSlide={handleChangeActiveSlide}
+        />
+      )}
+      <YearLine isMobile={isMobile}>
         <YearLineLeft>{yearA}</YearLineLeft>
         <YearLineRight>{yearB}</YearLineRight>
       </YearLine>
-      <SliderContainer>
+      {isMobile && <Divider />}
+      <SliderContainer isMobile={isMobile}>
         <NavigateButtonContainer>
           <SectionNumberContainer>{`${activeSlide}/${data.length}`}</SectionNumberContainer>
           <NavigateButtonGroup>

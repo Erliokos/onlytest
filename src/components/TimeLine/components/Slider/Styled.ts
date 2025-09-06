@@ -12,13 +12,13 @@ export const SliderItem = styled.div`
   flex-direction: column;
   gap: 15px;
 `
-export const SliderItemDate = styled.div`
+export const SliderItemDate = styled.div<{isMobile: boolean}>`
   color: ${({theme}) => theme.colors.secondary};
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 25px;
+  font-size: ${({ isMobile }) => isMobile ? '16px' : '25px'};
 `
-export const SliderItemDescription = styled.div`
-  font-size: 18px;
+export const SliderItemDescription = styled.div<{ isMobile: boolean }>`
+  font-size: ${({ isMobile }) => isMobile ? '14px' : '18px'};
 `
 export const SwiperContainer = styled.div`
   display: flex;

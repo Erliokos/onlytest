@@ -1,7 +1,7 @@
-import React from 'react'
-import { HorizontalLine, VerticalLine } from './Styled'
+import { HorizontalLine, VerticalLine } from "globalStyles";
 
 export function LineGroup() {
+
   return (
     <div>
       <HorizontalLine />

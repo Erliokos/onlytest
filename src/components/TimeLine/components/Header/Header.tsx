@@ -1,3 +1,4 @@
+import { useResponsive } from 'context/ResponsiveContext'
 import { HeaderContainer, HeaderText, HeaderVerticalLine } from './Styled'
 
 export type HeaderProps = {
@@ -5,10 +6,13 @@ export type HeaderProps = {
 }
 
 export const Header: React.FC<HeaderProps> = ({title}) => {
+
+  const { isMobile } = useResponsive()
+
   return (
-    <HeaderContainer>
-      <HeaderVerticalLine />
-      <HeaderText>{title}</HeaderText>
+    <HeaderContainer isMobile={isMobile}>
+      {!isMobile && <HeaderVerticalLine />}
+      <HeaderText isMobile={isMobile}>{title}</HeaderText>
     </HeaderContainer>
   )
 }
